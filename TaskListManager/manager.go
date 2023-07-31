@@ -1,4 +1,4 @@
-package tasklistmanager
+package Tasklistmanager
 
 import (
 	"fmt"
