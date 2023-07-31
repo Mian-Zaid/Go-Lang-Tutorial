@@ -1,19 +1,17 @@
 package main
 
 import (
-	controllers "gotutorial.com/main/controllers"
+	tasklistmanager "gotutorial.com/main/TaskListManager"
 )
 
 func main() {
-	room := controllers.Room{}
-	room.InitRoom("RoomTest", 1)
+	manager := &tasklistmanager.Manager{}
+	const data = "Hello this is text"
 
-	for i := 0; i < 5; i++ {
-		user := controllers.User{}
-		user = user.GenerateRandomUser()
-		room.AddUserToRoom(&user)
-	}
+	//create DB file if not exists
+	const filePath = "TaskListManager/Database/db.txt"
+	manager.File = manager.CreateOrOpenTextFile(filePath)
 
-	room.PrintRoom()
+	manager.AddTask()
 
 }
